@@ -2,7 +2,7 @@
  * @Author: 李晓丹 
  * @Date: 2019-08-14 16:18:57 
  * @Last Modified by: 李晓丹
- * @Last Modified time: 2019-08-14 17:19:24
+ * @Last Modified time: 2019-08-15 10:39:01
  */
 
  import React,{Component} from 'react'
@@ -37,9 +37,13 @@ class Registry extends Component{
      * 注册
      */
     registry = () =>{
-        registry(this.state).then(res => {
-            console.log(res);
-        })
+        if(this.state.username && this.state.password){
+            registry(this.state).then(res => {
+                if(res.data.code === 1){
+                    this.props.history.push('/login')
+                }
+            })
+        }
     }
  }
 

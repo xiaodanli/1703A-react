@@ -1,9 +1,5 @@
 import React from 'react'
 
-// import Login from '@/views/login'
-// import Registry from '@/views/registry'
-// import City from '@/views/city'
-
 import Loadable from 'react-loadable'
 
 function Loading(){
@@ -25,6 +21,11 @@ let City = Loadable({
     loader:() => import('@/views/city')
 })
 
+let Goods = Loadable({
+    loading:Loading,
+    loader:() => import('@/views/goods')
+}) 
+
 export const routes = [
     {
         path:'/login',
@@ -37,6 +38,10 @@ export const routes = [
     {
         path:'/city',
         component:City
+    },
+    {
+        path:'/goods/:id',
+        component:Goods
     },
     {
         path:'/',
