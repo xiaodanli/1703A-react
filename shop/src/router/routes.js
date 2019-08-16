@@ -26,6 +26,16 @@ let Goods = Loadable({
     loader:() => import('@/views/goods')
 }) 
 
+let Detail = Loadable({
+    loading:Loading,
+    loader:() => import('@/views/detail')
+}) 
+
+let Create = Loadable({
+    loading:Loading,
+    loader:() => import('@/views/create')
+}) 
+
 export const routes = [
     {
         path:'/login',
@@ -42,6 +52,14 @@ export const routes = [
     {
         path:'/goods/:id',
         component:Goods
+    },
+    {
+        path:'/detail/:id',
+        component:Detail
+    },
+    {
+        path:'/create',
+        component:Create
     },
     {
         path:'/',

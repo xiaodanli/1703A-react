@@ -1,18 +1,10 @@
-import {createStore,applyMiddleware} from 'redux'
+import {createStore,applyMiddleware,combineReducers} from 'redux'
 import thunk from 'redux-thunk'
+import {order} from './order/order-reducer'
 
-let reducer = (state={num:1,list:[]},action) => {
-    switch (action.type) {
-        case 'ADD':
-            state.num++
-            return {...state}
-        case 'GET_LIST':
-            state.list = action.list;
-            return {...state,list:[...state.list]}
-        default:
-            return state
-    }  
-}
+let reducer = combineReducers({
+    order
+})
 
 let store = createStore(reducer,applyMiddleware(thunk))
 
